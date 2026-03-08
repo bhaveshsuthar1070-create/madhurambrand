@@ -1,197 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Madhuram - Start Your Own Cleaning Brand</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Madhuram Brand Kit Calculator</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f5f5;
+padding:20px;
+}
+
+.container{
+max-width:600px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+}
+
+input,select,button{
+width:100%;
+padding:10px;
+margin-top:10px;
+}
+
+button{
+background:#25D366;
+color:white;
+border:none;
+font-size:16px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+background:#fafafa;
+padding:15px;
+border-radius:8px;
+}
+
+</style>
+
 </head>
 
-<body class="bg-gray-100 font-sans">
+<body>
 
-<div class="max-w-6xl mx-auto p-6">
+<div class="container">
 
-<div class="text-center mb-10">
-<h1 class="text-4xl font-bold mb-4">Start Your Own Cleaning Brand With Just ₹10,000</h1>
-<p>No factory. No manufacturing. Launch your own cleaning products brand.</p>
+<h2>Madhuram Brand Kit Finder</h2>
 
-<div class="bg-yellow-100 border p-4 rounded mt-6">
-<b>Only <span id="kitStock">20</span> Starter Kits Available</b>
-</div>
-</div>
+<input id="name" placeholder="Your Name">
 
-<!-- PRODUCT SELECT -->
-<div class="bg-white p-6 rounded-xl shadow mb-6">
+<input id="phone" placeholder="Phone Number">
 
-<h2 class="font-bold mb-4">1️⃣ Select Products</h2>
+<input id="city" placeholder="City">
 
-<div class="grid md:grid-cols-2 gap-3">
-
-<label><input type="checkbox" value="Toilet Cleaner 500ml" class="product"> Toilet Cleaner 500ml</label>
-<label><input type="checkbox" value="Phenyl 1L" class="product"> Phenyl 1L</label>
-<label><input type="checkbox" value="Hand Wash 500ml" class="product"> Hand Wash 500ml</label>
-<label><input type="checkbox" value="Dish Wash Tub 500g" class="product"> Dish Wash Tub 500g</label>
-<label><input type="checkbox" value="Machine Wash Liquid 1L" class="product"> Machine Wash Liquid 1L</label>
-<label><input type="checkbox" value="Detergent Cake 200g" class="product"> Detergent Cake 200g</label>
-<label><input type="checkbox" value="Bucket Wash Powder 1kg" class="product"> Bucket Wash Powder 1kg</label>
-<label><input type="checkbox" value="Machine Wash Powder 1kg" class="product"> Machine Wash Powder 1kg</label>
-
-</div>
-
-</div>
-
-<!-- KIT SELECT -->
-
-<div class="bg-white p-6 rounded-xl shadow mb-6">
-
-<h2 class="font-bold mb-4">2️⃣ Select Your Brand Kit</h2>
-
-<select id="budget" class="w-full border p-3 rounded">
-
-<option value="10000">Starter Kit – ₹10,000</option>
-<option value="20000">Small Business Kit – ₹20,000</option>
-<option value="50000">Business Kit – ₹50,000</option>
-
+<select id="budget">
+<option value="10000">₹10,000 Kit</option>
+<option value="20000">₹20,000 Kit</option>
+<option value="30000">₹30,000 Kit</option>
+<option value="50000">₹50,000 Kit</option>
 </select>
 
-<button onclick="calculate()" class="mt-4 w-full bg-black text-white p-3 rounded">
-Calculate My Kit
-</button>
+<button onclick="calculateKit()">Calculate Kit</button>
+
+<div id="result" class="result"></div>
+
+<button onclick="sendWhatsApp()">Submit on WhatsApp</button>
 
 </div>
 
-<!-- RESULT -->
-
-<div id="result" class="bg-white p-6 rounded-xl shadow hidden mb-6">
-
-<h2 class="text-xl font-bold mb-4">Your Kit Details</h2>
-
-<div id="items"></div>
-
-<div class="mt-4 bg-gray-100 p-4 rounded">
-
-<p id="kitName"></p>
-<p id="totalCost"></p>
-<p id="marketValue"></p>
-<p id="profit" class="font-bold"></p>
-
-</div>
-
-</div>
-
-<!-- FORM -->
-
-<div class="bg-white p-6 rounded-xl shadow">
-
-<h2 class="font-bold mb-4">Start Your Brand</h2>
-
-<input id="name" class="w-full border p-3 rounded mb-3" placeholder="Your Name">
-<input id="phone" class="w-full border p-3 rounded mb-3" placeholder="Phone Number">
-<input id="city" class="w-full border p-3 rounded mb-3" placeholder="City">
-
-<button onclick="sendLead()" class="w-full bg-green-600 text-white p-3 rounded">
-Submit
-</button>
-
-</div>
-
-</div>
-
-<a href="https://wa.me/918769001655" class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-full">
-Chat on WhatsApp
-</a>
 
 <script>
 
-let kitStock=20
+let products=[
 
-const products={
-"Toilet Cleaner 500ml":{price:40,market:90},
-"Phenyl 1L":{price:26,market:70},
-"Hand Wash 500ml":{price:58,market:120},
-"Dish Wash Tub 500g":{price:28,market:70},
-"Machine Wash Liquid 1L":{price:105,market:190},
-"Detergent Cake 200g":{price:8,market:20},
-"Bucket Wash Powder 1kg":{price:58,market:130},
-"Machine Wash Powder 1kg":{price:73,market:160}
-}
+{name:"Phenyl",price:80},
+{name:"Hand Wash",price:70},
+{name:"Dish Wash",price:65},
+{name:"Toilet Cleaner",price:90},
+{name:"Floor Cleaner",price:85},
+{name:"Glass Cleaner",price:95},
+{name:"Liquid Detergent",price:120},
+{name:"Fabric Conditioner",price:130},
+{name:"Car Shampoo",price:110},
+{name:"Room Freshener",price:140},
+{name:"Drain Cleaner",price:150},
+{name:"Bathroom Cleaner",price:100},
+{name:"Kitchen Cleaner",price:105},
+{name:"Multi Surface Cleaner",price:115},
+{name:"Sofa Cleaner",price:135},
+{name:"Tile Cleaner",price:125},
+{name:"Dishwash Gel",price:75},
+{name:"Stain Remover",price:160},
+{name:"Hand Sanitizer",price:60},
+{name:"Floor Disinfectant",price:95}
 
-function calculate(){
+];
 
-const selected=document.querySelectorAll('.product:checked')
-const budget=parseInt(document.getElementById('budget').value)
+function calculateKit(){
 
-if(selected.length===0){
-alert("Please select products")
-return
-}
+let budget=document.getElementById("budget").value;
 
-const splitBudget=budget/selected.length
+let resultHTML="";
 
-let html=""
-let totalMarket=0
+products.forEach(p=>{
 
-selected.forEach(item=>{
+let pieces=Math.floor(budget/products.length/p.price);
 
-const p=products[item.value]
-const pieces=Math.floor(splitBudget/p.price)
-const value=pieces*p.market
+let total=pieces*p.price;
 
-totalMarket+=value
+resultHTML+=`
+<b>${p.name}</b><br>
+Price: ₹${p.price}<br>
+Pieces: ${pieces}<br>
+Total: ₹${total}<br><br>
+`;
 
-html+=`<div class="border-b py-3">
-<b>${item.value}</b><br>
-Price Per Piece: ₹${p.price}<br>
-Pieces You Will Get: ${pieces}<br>
-Total Cost: ₹${pieces * p.price}
-</div>``
+});
 
-})
-
-const profit=totalMarket-budget
-
-document.getElementById('items').innerHTML=html
-document.getElementById('totalCost').innerText="Investment: ₹"+budget
-document.getElementById('marketValue').innerText="Market Value: ₹"+totalMarket
-document.getElementById('profit').innerText="Profit Potential: ₹"+profit
-
-document.getElementById('kitName').innerText="Selected Kit Budget: ₹"+budget
-
-document.getElementById('result').classList.remove('hidden')
+document.getElementById("result").innerHTML=resultHTML;
 
 }
 
-function sendLead(){
 
-const name=document.getElementById("name").value
-const phone=document.getElementById("phone").value
-const city=document.getElementById("city").value
-const budget=document.getElementById("budget").value
+function sendWhatsApp(){
 
-if(name=="" || phone==""){
-alert("Fill name and phone")
-return
-}
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let city=document.getElementById("city").value;
+let budget=document.getElementById("budget").value;
 
-let productList=""
+let message="New Kit Lead%0A%0A";
 
-document.querySelectorAll('.product:checked').forEach(p=>{
-productList+=p.value+", "
-})
+message+="Name: "+name+"%0A";
+message+="Phone: "+phone+"%0A";
+message+="City: "+city+"%0A";
+message+="Budget: ₹"+budget;
 
-const message=`New Brand Kit Lead:%0A
-Name: ${name}%0A
-Phone: ${phone}%0A
-City: ${city}%0A
-Selected Kit Budget: ₹${budget}%0A
-Products: ${productList}`
+let url="https://wa.me/918769001655?text="+message;
 
-window.open("https://wa.me/918769001655?text="+message)
-
-if(kitStock>0){
-kitStock--
-document.getElementById("kitStock").innerText=kitStock
-}
+window.open(url,"_blank");
 
 }
 
@@ -199,4 +149,3 @@ document.getElementById("kitStock").innerText=kitStock
 
 </body>
 </html>
-
