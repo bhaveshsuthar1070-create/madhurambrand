@@ -22,14 +22,14 @@
 
 <div class="grid md:grid-cols-2 gap-3">
 
-<label><input type="checkbox" value="toilet" class="product"> Toilet Cleaner 500ml</label>
-<label><input type="checkbox" value="phenyl" class="product"> Phenyl 1L</label>
-<label><input type="checkbox" value="handwash" class="product"> Hand Wash 500ml</label>
-<label><input type="checkbox" value="dishtub" class="product"> Dish Wash Tub 500g</label>
-<label><input type="checkbox" value="machliquid" class="product"> Machine Wash Liquid 1L</label>
-<label><input type="checkbox" value="cake" class="product"> Detergent Cake 200g</label>
-<label><input type="checkbox" value="bucketpowder" class="product"> Bucket Wash Powder 1kg</label>
-<label><input type="checkbox" value="machinepowder" class="product"> Machine Wash Powder 1kg</label>
+<label><input type="checkbox" value="Toilet Cleaner 500ml" class="product"> Toilet Cleaner 500ml</label>
+<label><input type="checkbox" value="Phenyl 1L" class="product"> Phenyl 1L</label>
+<label><input type="checkbox" value="Hand Wash 500ml" class="product"> Hand Wash 500ml</label>
+<label><input type="checkbox" value="Dish Wash Tub 500g" class="product"> Dish Wash Tub 500g</label>
+<label><input type="checkbox" value="Machine Wash Liquid 1L" class="product"> Machine Wash Liquid 1L</label>
+<label><input type="checkbox" value="Detergent Cake 200g" class="product"> Detergent Cake 200g</label>
+<label><input type="checkbox" value="Bucket Wash Powder 1kg" class="product"> Bucket Wash Powder 1kg</label>
+<label><input type="checkbox" value="Machine Wash Powder 1kg" class="product"> Machine Wash Powder 1kg</label>
 
 </div>
 </div>
@@ -88,14 +88,14 @@ Chat on WhatsApp
 <script>
 
 const products={
-toilet:{name:"Toilet Cleaner 500ml",price:40,market:90},
-phenyl:{name:"Phenyl 1L",price:26,market:70},
-handwash:{name:"Hand Wash 500ml",price:58,market:120},
-dishtub:{name:"Dish Wash Tub 500g",price:28,market:70},
-machliquid:{name:"Machine Wash Liquid 1L",price:105,market:190},
-cake:{name:"Detergent Cake 200g",price:8,market:20},
-bucketpowder:{name:"Bucket Wash Powder 1kg",price:58,market:130},
-machinepowder:{name:"Machine Wash Powder 1kg",price:73,market:160}
+"Toilet Cleaner 500ml":{price:40,market:90},
+"Phenyl 1L":{price:26,market:70},
+"Hand Wash 500ml":{price:58,market:120},
+"Dish Wash Tub 500g":{price:28,market:70},
+"Machine Wash Liquid 1L":{price:105,market:190},
+"Detergent Cake 200g":{price:8,market:20},
+"Bucket Wash Powder 1kg":{price:58,market:130},
+"Machine Wash Powder 1kg":{price:73,market:160}
 }
 
 function calculate(){
@@ -122,7 +122,7 @@ const value=pieces*p.market
 totalMarket+=value
 
 html+=`<div class="border-b py-3">
-<b>${p.name}</b><br>
+<b>${item.value}</b><br>
 Price Per Piece: ₹${p.price}<br>
 Pieces You Will Get: ${pieces}
 </div>`
@@ -145,13 +145,27 @@ function sendLead(){
 const name=document.getElementById("name").value
 const phone=document.getElementById("phone").value
 const city=document.getElementById("city").value
+const budget=document.getElementById("budget").value
+
+const selected=document.querySelectorAll('.product:checked')
+
+let productList=""
+
+selected.forEach(p=>{
+productList+=p.value+", "
+})
 
 if(name=="" || phone==""){
 alert("Please fill your name and phone")
 return
 }
 
-const message=`New Brand Starter Lead:%0AName: ${name}%0APhone: ${phone}%0ACity: ${city}`
+const message=`New Brand Starter Lead:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+City: ${city}%0A
+Budget: ₹${budget}%0A
+Products: ${productList}`
 
 window.open("https://wa.me/918769001655?text="+message)
 
@@ -161,4 +175,3 @@ window.open("https://wa.me/918769001655?text="+message)
 
 </body>
 </html>
-
