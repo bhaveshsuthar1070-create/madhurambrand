@@ -139,10 +139,12 @@ const value=pieces*p.market
 
 totalMarket+=value
 
-html+=`<div class="border-b py-2">
+html+=`<div class="border-b py-3">
 <b>${item.value}</b><br>
-Pieces: ${pieces}
-</div>`
+Price Per Piece: ₹${p.price}<br>
+Pieces You Will Get: ${pieces}<br>
+Total Cost: ₹${pieces * p.price}
+</div>``
 
 })
 
@@ -197,3 +199,4 @@ document.getElementById("kitStock").innerText=kitStock
 
 </body>
 </html>
+
