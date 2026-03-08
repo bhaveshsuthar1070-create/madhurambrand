@@ -13,12 +13,17 @@
 
 <div class="text-center mb-10">
 <h1 class="text-4xl font-bold mb-4">Start Your Own Cleaning Brand With Just ₹10,000</h1>
-<p class="text-lg">No factory. No manufacturing. Launch your own cleaning products brand with ready-to-sell items.</p>
+<p>No factory. No manufacturing. Launch your own cleaning products brand.</p>
+
+<div class="bg-yellow-100 border p-4 rounded mt-6">
+<b>Only <span id="kitStock">20</span> Starter Kits Available</b>
+</div>
 </div>
 
-<div class="bg-white p-6 rounded-2xl shadow mb-6">
+<!-- PRODUCT SELECT -->
+<div class="bg-white p-6 rounded-xl shadow mb-6">
 
-<h2 class="font-bold mb-4 text-xl">1️⃣ Select Products</h2>
+<h2 class="font-bold mb-4">1️⃣ Select Products</h2>
 
 <div class="grid md:grid-cols-2 gap-3">
 
@@ -32,47 +37,59 @@
 <label><input type="checkbox" value="Machine Wash Powder 1kg" class="product"> Machine Wash Powder 1kg</label>
 
 </div>
+
 </div>
 
-<div class="bg-white p-6 rounded-2xl shadow mb-6">
+<!-- KIT SELECT -->
 
-<h2 class="font-bold mb-4 text-xl">2️⃣ Select Your Budget</h2>
+<div class="bg-white p-6 rounded-xl shadow mb-6">
+
+<h2 class="font-bold mb-4">2️⃣ Select Your Brand Kit</h2>
 
 <select id="budget" class="w-full border p-3 rounded">
-<option value="10000">₹10,000 – Starter Brand Kit</option>
-<option value="20000">₹20,000 – Small Business Kit</option>
-<option value="50000">₹50,000 – Business Kit</option>
+
+<option value="10000">Starter Kit – ₹10,000</option>
+<option value="20000">Small Business Kit – ₹20,000</option>
+<option value="50000">Business Kit – ₹50,000</option>
+
 </select>
 
-<button onclick="calculate()" class="mt-4 w-full bg-black text-white p-3 rounded-xl">
-Calculate My Brand Package
+<button onclick="calculate()" class="mt-4 w-full bg-black text-white p-3 rounded">
+Calculate My Kit
 </button>
 
 </div>
 
-<div id="result" class="bg-white p-6 rounded-2xl shadow hidden mb-6">
+<!-- RESULT -->
 
-<h2 class="text-xl font-bold mb-4">Your Brand Package</h2>
+<div id="result" class="bg-white p-6 rounded-xl shadow hidden mb-6">
+
+<h2 class="text-xl font-bold mb-4">Your Kit Details</h2>
 
 <div id="items"></div>
 
-<div class="mt-6 p-4 bg-gray-100 rounded-xl">
+<div class="mt-4 bg-gray-100 p-4 rounded">
+
+<p id="kitName"></p>
 <p id="totalCost"></p>
 <p id="marketValue"></p>
 <p id="profit" class="font-bold"></p>
-</div>
 
 </div>
 
-<div class="bg-white p-6 rounded-2xl shadow mb-10">
+</div>
 
-<h2 class="text-xl font-bold mb-4">Start Your Brand</h2>
+<!-- FORM -->
+
+<div class="bg-white p-6 rounded-xl shadow">
+
+<h2 class="font-bold mb-4">Start Your Brand</h2>
 
 <input id="name" class="w-full border p-3 rounded mb-3" placeholder="Your Name">
 <input id="phone" class="w-full border p-3 rounded mb-3" placeholder="Phone Number">
 <input id="city" class="w-full border p-3 rounded mb-3" placeholder="City">
 
-<button onclick="sendLead()" class="w-full bg-green-600 text-white p-3 rounded-xl">
+<button onclick="sendLead()" class="w-full bg-green-600 text-white p-3 rounded">
 Submit
 </button>
 
@@ -80,12 +97,13 @@ Submit
 
 </div>
 
-<a href="https://wa.me/918769001655"
-class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-full shadow-lg">
+<a href="https://wa.me/918769001655" class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-full">
 Chat on WhatsApp
 </a>
 
 <script>
+
+let kitStock=20
 
 const products={
 "Toilet Cleaner 500ml":{price:40,market:90},
@@ -104,7 +122,7 @@ const selected=document.querySelectorAll('.product:checked')
 const budget=parseInt(document.getElementById('budget').value)
 
 if(selected.length===0){
-alert("Please select at least one product")
+alert("Please select products")
 return
 }
 
@@ -121,10 +139,9 @@ const value=pieces*p.market
 
 totalMarket+=value
 
-html+=`<div class="border-b py-3">
+html+=`<div class="border-b py-2">
 <b>${item.value}</b><br>
-Price Per Piece: ₹${p.price}<br>
-Pieces You Will Get: ${pieces}
+Pieces: ${pieces}
 </div>`
 
 })
@@ -132,9 +149,11 @@ Pieces You Will Get: ${pieces}
 const profit=totalMarket-budget
 
 document.getElementById('items').innerHTML=html
-document.getElementById('totalCost').innerText="Your Investment: ₹"+budget
-document.getElementById('marketValue').innerText="Estimated Market Value: ₹"+totalMarket
-document.getElementById('profit').innerText="Estimated Profit Potential: ₹"+profit
+document.getElementById('totalCost').innerText="Investment: ₹"+budget
+document.getElementById('marketValue').innerText="Market Value: ₹"+totalMarket
+document.getElementById('profit').innerText="Profit Potential: ₹"+profit
+
+document.getElementById('kitName').innerText="Selected Kit Budget: ₹"+budget
 
 document.getElementById('result').classList.remove('hidden')
 
@@ -147,27 +166,30 @@ const phone=document.getElementById("phone").value
 const city=document.getElementById("city").value
 const budget=document.getElementById("budget").value
 
-const selected=document.querySelectorAll('.product:checked')
-
-let productList=""
-
-selected.forEach(p=>{
-productList+=p.value+", "
-})
-
 if(name=="" || phone==""){
-alert("Please fill your name and phone")
+alert("Fill name and phone")
 return
 }
 
-const message=`New Brand Starter Lead:%0A
+let productList=""
+
+document.querySelectorAll('.product:checked').forEach(p=>{
+productList+=p.value+", "
+})
+
+const message=`New Brand Kit Lead:%0A
 Name: ${name}%0A
 Phone: ${phone}%0A
 City: ${city}%0A
-Budget: ₹${budget}%0A
+Selected Kit Budget: ₹${budget}%0A
 Products: ${productList}`
 
 window.open("https://wa.me/918769001655?text="+message)
+
+if(kitStock>0){
+kitStock--
+document.getElementById("kitStock").innerText=kitStock
+}
 
 }
 
