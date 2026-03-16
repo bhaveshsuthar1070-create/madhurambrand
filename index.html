@@ -3,188 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madhuram | Start Your Own Cleaning Product Brand</title>
-    <meta name="description" content="Launch your cleaning business with Madhuram. Low investment, high profit margins, and ready-to-sell products. No factory required.">
+    <title>Madhuram | Start Your Cleaning Product Business</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
         .product-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .product-card:hover { transform: translateY(-10px); }
-        .gradient-text { background: linear-gradient(90deg, #2563eb, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .product-card.selected { border-color: #10b981; background-color: #f0fdf4; transform: scale(1.02); }
+        .step-inactive { opacity: 0.5; pointer-events: none; filter: grayscale(1); }
+        input[type="checkbox"] { accent-color: #10b981; }
+        .glass-morphism { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
-    <nav class="fixed w-full z-50 glass-nav border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center gap-2">
-                    <span class="text-3xl font-extrabold tracking-tighter text-blue-600">MADHURAM</span>
-                </div>
-                <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
-                    <a href="#opportunity" class="hover:text-blue-600 transition">Opportunity</a>
-                    <a href="#products" class="hover:text-blue-600 transition">Products</a>
-                    <a href="#how-it-works" class="hover:text-blue-600 transition">How it Works</a>
-                </div>
-                <a href="https://wa.me/91XXXXXXXXXX?text=Hello%20Madhuram,%20I%20want%20to%20start%20my%20own%20cleaning%20brand." 
-                   class="bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-                    Contact Us
-                </a>
+    <nav class="fixed w-full z-50 glass-morphism border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-green-600 rounded-lg"></div>
+                <span class="text-2xl font-extrabold tracking-tight text-green-700">MADHURAM</span>
             </div>
+            <a href="https://wa.me/918769001655" class="bg-green-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-green-700 transition">Contact Support</a>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-4 bg-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
-        <div class="max-w-7xl mx-auto text-center relative z-10">
-            <span class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-wider text-blue-600 bg-blue-50 rounded-full">ENTREPRENEURSHIP PROGRAM 2026</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight leading-tight">
-                Start Your Own <br><span class="gradient-text">Cleaning Product Brand</span>
-            </h1>
-            <p class="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                Launch your white-label cleaning business with Madhuram. We provide premium ready-to-sell formulas; you provide the brand name.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#products" class="bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-blue-300">
-                    Start Your Business
-                </a>
-                <div class="flex items-center gap-2 px-6 py-4 text-slate-600 font-medium">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    Now accepting new distributors
-                </div>
-            </div>
+    <section class="pt-32 pb-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide uppercase">Business Opportunity 2026</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mt-6 mb-6 leading-tight">Start Your Own <span class="text-green-600">Cleaning Brand</span></h1>
+            <p class="text-slate-500 text-lg md:text-xl">Select your products, set your budget, and calculate your potential profit in seconds. No factory required.</p>
         </div>
     </section>
 
-    <section id="opportunity" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
+    <main class="max-w-6xl mx-auto px-4 pb-24">
+        
+        <section id="step1" class="mb-16">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">1</span>
+                <h2 class="text-2xl font-bold">Select Products You Want to Sell</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6" id="productGrid">
+                </div>
+        </section>
+
+        <section id="step2" class="mb-16 step-inactive transition-all duration-500">
+            <div class="grid md:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-4xl font-extrabold mb-6 tracking-tight">Why Partner with Madhuram?</h2>
-                    <p class="text-slate-600 text-lg mb-8">We remove the barrier to entry. You don't need a PhD in chemistry or a massive factory to own a household brand.</p>
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">2</span>
+                        <h2 class="text-2xl font-bold">Market Potential (MRP)</h2>
+                    </div>
+                    <div id="mrpDisplay" class="bg-white p-6 rounded-3xl border border-slate-200 space-y-4 shadow-sm">
+                        <p class="text-slate-400 italic">Select products above to see market pricing...</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">3</span>
+                        <h2 class="text-2xl font-bold">Enter Your Investment</h2>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                        <label class="block text-sm font-bold text-slate-500 mb-4 uppercase tracking-wider">Starting Budget (INR)</label>
+                        <input type="number" id="budgetInput" placeholder="Enter amount (e.g. 10000)" 
+                            class="w-full text-3xl font-bold px-6 py-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-green-500 outline-none transition">
+                        <p class="mt-4 text-slate-400 text-sm">Recommended: ₹10,000 — ₹50,000 for a healthy start.</p>
+                        <button onclick="calculateKit()" class="w-full mt-8 bg-green-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-green-700 transition shadow-lg shadow-green-200">
+                            Calculate Starter Kit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultSection" class="hidden animate-in fade-in slide-in-from-bottom-10 duration-700">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">4</span>
+                <h2 class="text-2xl font-bold">Your Customized Starter Kit</h2>
+            </div>
+            
+            <div class="bg-slate-900 rounded-[2.5rem] overflow-hidden text-white shadow-2xl">
+                <div class="p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-green-400 font-bold mb-6 uppercase tracking-widest text-sm">Inventory Breakdown</h3>
+                            <div id="kitList" class="space-y-4">
+                                </div>
+                        </div>
+                        <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+                            <h3 class="text-white font-bold mb-8 text-xl text-center">Financial Projection</h3>
+                            <div class="space-y-6">
+                                <div class="flex justify-between border-b border-slate-700 pb-4">
+                                    <span class="text-slate-400">Total Investment</span>
+                                    <span class="text-2xl font-bold" id="totalCost">₹0</span>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-700 pb-4">
+                                    <span class="text-slate-400">Estimated Sales (at MRP)</span>
+                                    <span class="text-2xl font-bold text-green-400" id="estSales">₹0</span>
+                                </div>
+                                <div class="flex justify-between pt-2">
+                                    <span class="text-slate-400">Net Profit</span>
+                                    <span class="text-4xl font-black text-green-500" id="estProfit">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <div class="grid gap-6">
-                        <div class="flex gap-4 p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center shrink-0">🏭</div>
-                            <div>
-                                <h4 class="font-bold text-lg">No Factory Required</h4>
-                                <p class="text-slate-500">We handle the manufacturing, R&D, and quality control for you.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center shrink-0">📦</div>
-                            <div>
-                                <h4 class="font-bold text-lg">Ready Products</h4>
-                                <p class="text-slate-500">Tested, high-viscosity, and fragrant formulas ready for packaging.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                            <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center shrink-0">🏷️</div>
-                            <div>
-                                <h4 class="font-bold text-lg">Custom Branding</h4>
-                                <p class="text-slate-500">Put your logo and brand name on our premium products.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                            <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center shrink-0">📈</div>
-                            <div>
-                                <h4 class="font-bold text-lg">High Profit Margins</h4>
-                                <p class="text-slate-500">Wholesale pricing designed to let you earn up to 150% ROI.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" alt="Cleaning Products" class="rounded-[2.5rem] shadow-2xl">
-                    <div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
-                        <div class="text-4xl font-bold text-blue-600">₹0</div>
-                        <div class="text-slate-500 font-medium">Setup Fee Required</div>
+                    <div class="mt-12 text-center">
+                        <button onclick="sendWhatsApp()" class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-500 text-white px-10 py-5 rounded-2xl font-extrabold text-xl transition-all hover:scale-105 shadow-xl shadow-green-900/40">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Start My Business on WhatsApp
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section id="products" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold mb-4">Our Product Catalog</h2>
-                <p class="text-slate-500 max-w-xl mx-auto">Select products to start your brand. Prices shown are wholesale (Bulk) rates.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
-                </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-900 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-5xl font-extrabold mb-8">Ready to be your own boss?</h2>
-            <p class="text-slate-400 mb-12 max-w-lg mx-auto">Join 50+ entrepreneurs who have launched their brands using Madhuram products.</p>
-            <a href="https://wa.me/91XXXXXXXXXX?text=Hello%20Madhuram,%20I%20want%20to%20start%20my%20own%20cleaning%20brand." class="bg-green-500 hover:bg-green-600 text-white px-12 py-5 rounded-2xl font-bold text-xl inline-block shadow-2xl transition-all">
-                Order Now on WhatsApp
-            </a>
-            <p class="mt-20 text-slate-500 text-sm">© 2026 Madhuram Industries. All rights reserved. | madhurambrand.in</p>
-        </div>
+    <footer class="py-12 text-center text-slate-400 text-sm">
+        <p>© 2026 Madhuram Products. custommadhuram.in | 8769001655</p>
     </footer>
 
     <script>
         const products = [
-            { name: "Toilet Cleaner 500ml", wholesale: 35, mrp: 99, img: "https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&q=80&w=400" },
-            { name: "Dishwash Liquid 500ml", wholesale: 40, mrp: 110, img: "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=400" },
-            { name: "Dishwash Bar (Combo of 2)", wholesale: 25, mrp: 60, img: "https://images.unsplash.com/photo-1585672840451-879c940428fa?auto=format&fit=crop&q=80&w=400" },
-            { name: "Floor Cleaner 1L", wholesale: 60, mrp: 150, img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=400" },
-            { name: "Liquid Machine Wash 1L", wholesale: 70, mrp: 170, img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&q=80&w=400" },
-            { name: "Detergent Roll On", wholesale: 15, mrp: 49, img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=400" }
+            { id: 'tc', name: "Toilet Cleaner", size: "500ml", wholesale: 35, mrp: 99, img: "https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&q=80&w=200" },
+            { id: 'dw', name: "Dishwash Liquid", size: "500ml", wholesale: 28, mrp: 110, img: "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=200" },
+            { id: 'ph', name: "Phenyl", size: "1L", wholesale: 22, mrp: 120, img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=200" },
+            { id: 'fw', name: "Fabric Wash", size: "1L", wholesale: 85, mrp: 199, img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&q=80&w=200" },
+            { id: 'dp', name: "Detergent Powder", size: "1kg", wholesale: 55, mrp: 120, img: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=200" }
         ];
 
-        function renderProducts() {
-            const grid = document.getElementById('product-grid');
-            grid.innerHTML = products.map(p => {
-                const profit = p.mrp - p.wholesale;
-                const margin = ((profit / p.wholesale) * 100).toFixed(0);
+        let selectedIds = [];
+
+        // Render Products
+        const productGrid = document.getElementById('productGrid');
+        products.forEach(p => {
+            const card = document.createElement('div');
+            card.className = "product-card bg-white p-4 rounded-3xl border border-slate-200 cursor-pointer text-center relative";
+            card.innerHTML = `
+                <img src="${p.img}" class="w-full h-32 object-contain mb-4 rounded-2xl" alt="${p.name}">
+                <h3 class="font-bold text-sm leading-tight mb-1">${p.name}</h3>
+                <p class="text-xs text-slate-400 mb-3">${p.size}</p>
+                <p class="text-green-600 font-bold text-lg">₹${p.wholesale}</p>
+                <input type="checkbox" class="absolute top-4 right-4 w-5 h-5 pointer-events-none" id="check-${p.id}">
+            `;
+            card.onclick = () => toggleProduct(p.id, card);
+            productGrid.appendChild(card);
+        });
+
+        function toggleProduct(id, card) {
+            const index = selectedIds.indexOf(id);
+            if (index > -1) {
+                selectedIds.splice(index, 1);
+                card.classList.remove('selected');
+                document.getElementById(`check-${id}`).checked = false;
+            } else {
+                selectedIds.push(id);
+                card.classList.add('selected');
+                document.getElementById(`check-${id}`).checked = true;
+            }
+            updateStep2();
+        }
+
+        function updateStep2() {
+            const mrpDisplay = document.getElementById('mrpDisplay');
+            const step2 = document.getElementById('step2');
+            
+            if (selectedIds.length > 0) {
+                step2.classList.remove('step-inactive');
+                const selectedProds = products.filter(p => selectedIds.includes(p.id));
+                mrpDisplay.innerHTML = selectedProds.map(p => `
+                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-xl">
+                        <span class="font-medium text-slate-700">${p.name}</span>
+                        <span class="text-slate-400">Market MRP: <b class="text-slate-900">₹${p.mrp}</b></span>
+                    </div>
+                `).join('');
+            } else {
+                step2.classList.add('step-inactive');
+                mrpDisplay.innerHTML = `<p class="text-slate-400 italic">Select products above to see market pricing...</p>`;
+            }
+        }
+
+        function calculateKit() {
+            const budget = parseFloat(document.getElementById('budgetInput').value);
+            if (!budget || selectedIds.length === 0) {
+                alert("Please select products and enter a valid budget.");
+                return;
+            }
+
+            const selectedProds = products.filter(p => selectedIds.includes(p.id));
+            const budgetPerProduct = budget / selectedProds.length;
+            
+            let totalCost = 0;
+            let totalSales = 0;
+            let kitItemsHtml = '';
+
+            selectedProds.forEach(p => {
+                const units = Math.floor(budgetPerProduct / p.wholesale);
+                const cost = units * p.wholesale;
+                const sales = units * p.mrp;
                 
-                return `
-                    <div class="product-card bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
-                        <div class="h-56 overflow-hidden relative">
-                            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover">
-                            <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                                ${margin}% PROFIT
-                            </div>
+                totalCost += cost;
+                totalSales += sales;
+                
+                kitItemsHtml += `
+                    <div class="flex justify-between items-center bg-slate-800/50 p-4 rounded-2xl border border-slate-700">
+                        <div>
+                            <p class="font-bold text-lg">${p.name}</p>
+                            <p class="text-green-400 text-sm">${units} Units @ ₹${p.wholesale}</p>
                         </div>
-                        <div class="p-6 flex-grow">
-                            <h3 class="text-xl font-extrabold mb-4">${p.name}</h3>
-                            <div class="space-y-3 mb-6">
-                                <div class="flex justify-between items-center text-sm">
-                                    <span class="text-slate-500">Wholesale Price</span>
-                                    <span class="font-bold text-blue-600 text-lg">₹${p.wholesale}</span>
-                                </div>
-                                <div class="flex justify-between items-center text-sm">
-                                    <span class="text-slate-500">Retail MRP</span>
-                                    <span class="font-semibold text-slate-700">₹${p.mrp}</span>
-                                </div>
-                                <div class="pt-3 border-t border-dashed flex justify-between items-center">
-                                    <span class="text-slate-900 font-bold">Net Profit</span>
-                                    <span class="text-green-600 font-extrabold text-xl">₹${profit}</span>
-                                </div>
-                            </div>
-                            <button onclick="selectProduct('${p.name}')" class="w-full bg-slate-50 hover:bg-blue-600 hover:text-white text-blue-600 border border-blue-100 font-bold py-3 rounded-xl transition-all">
-                                Select Product
-                            </button>
+                        <div class="text-right">
+                            <p class="font-bold">₹${cost}</p>
                         </div>
                     </div>
                 `;
-            }).join('');
+            });
+
+            document.getElementById('kitList').innerHTML = kitItemsHtml;
+            document.getElementById('totalCost').innerText = `₹${totalCost}`;
+            document.getElementById('estSales').innerText = `₹${totalSales}`;
+            document.getElementById('estProfit').innerText = `₹${totalSales - totalCost}`;
+            
+            const resultSection = document.getElementById('resultSection');
+            resultSection.classList.remove('hidden');
+            resultSection.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function selectProduct(name) {
-            const msg = encodeURIComponent(`Hello Madhuram, I am interested in starting my brand with ${name}. Please share more details.`);
-            window.location.href = `https://wa.me/91XXXXXXXXXX?text=${msg}`;
+        function sendWhatsApp() {
+            const budget = document.getElementById('budgetInput').value;
+            const selectedProdsNames = products.filter(p => selectedIds.includes(p.id)).map(p => p.name).join(', ');
+            const profit = document.getElementById('estProfit').innerText;
+            
+            const message = `Hello Madhuram, %0A%0AI want to start my cleaning product business.%0A%0A*Selected Products:* ${selectedProdsNames}%0A*My Budget:* ₹${budget}%0A*Estimated Profit:* ${profit}%0A%0APlease guide me on the next steps!`;
+            
+            window.open(`https://wa.me/918769001655?text=${message}`, '_blank');
         }
-
-        renderProducts();
     </script>
 </body>
 </html>
