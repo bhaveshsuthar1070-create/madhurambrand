@@ -55,9 +55,18 @@
                 </div>
                 <div class="w-full md:w-72">
                     <label class="block text-sm font-bold text-slate-700 mb-2">Enter Your Total Budget (₹)</label>
-                    <input type="number" id="budgetInput" placeholder="e.g. 10000" 
-                           class="w-full px-5 py-4 rounded-2xl border-2 border-blue-100 focus:border-blue-500 outline-none text-xl font-bold transition shadow-sm"
-                           oninput="calculateProfit()">
+                    <select id="budgetInput" 
+class="w-full px-5 py-4 rounded-2xl border-2 border-blue-100 focus:border-blue-500 outline-none text-lg font-bold transition shadow-sm"
+onchange="calculateProfit()">
+
+<option value="">Select Budget</option>
+<option value="5000">₹5,000</option>
+<option value="10000">₹10,000</option>
+<option value="20000">₹20,000</option>
+<option value="50000">₹50,000</option>
+<option value="100000">₹1,00,000</option>
+
+</select>
                 </div>
             </div>
 
@@ -97,7 +106,7 @@
                             <th class="px-6 py-4">Product</th>
                             <th class="px-6 py-4">Calculated Qty</th>
                             <th class="px-6 py-4">Cost Price</th>
-                            <th class="px-6 py-4">Selling Price (2x)</th>
+                            <th class="px-6 py-4">Market Price</th>
                         </tr>
                     </thead>
                     <tbody id="resultTableBody" class="text-slate-900 divide-y divide-slate-100">
@@ -138,13 +147,13 @@
         AOS.init({ duration: 1000, once: true });
 
         const products = [
-            { id: 1, name: "Dishwash Liquid", qty: "500ml", price: 28, img: "dish wash liquid.jpg" },
-            { id: 2, name: "Hand Wash", qty: "500ml", price: 50, img: "hand wash.png" },
-            { id: 3, name: "Phenyl", qty: "1L", price: 20, img: "phenyl.jpg" },
-            { id: 4, name: "Detergent Powder", qty: "1kg", price: 55, img: "powder 60.png" },
-            { id: 5, name: "Toilet Cleaner", qty: "1L", price: 35, img: "toilet cleaner.png" },
-            { id: 6, name: "Machine Liquid", qty: "1L", price: 85, img: "machine wash liquid.png" } // Replace machine.png if not available
-        ];
+    { id: 1, name: "Dishwash Liquid", qty: "500ml", price: 28, market: 80, img: "dish wash liquid.jpg" },
+    { id: 2, name: "Hand Wash", qty: "500ml", price: 50, market: 120, img: "hand wash.png" },
+    { id: 3, name: "Phenyl", qty: "1L", price: 20, market: 90, img: "phenyl.jpg" },
+    { id: 4, name: "Detergent Powder", qty: "1kg", price: 55, market: 120, img: "powder 60.png" },
+    { id: 5, name: "Toilet Cleaner", qty: "1L", price: 35, market: 95, img: "toilet cleaner.png" },
+    { id: 6, name: "Machine Liquid", qty: "1L", price: 85, market: 180, img: "machine wash liquid.png" }
+];
 
         let selectedProductIds = [];
 
@@ -211,7 +220,7 @@
             selectedProducts.forEach(p => {
                 const units = Math.floor(budgetPerProduct / p.price);
                 const cost = units * p.price;
-                const sellingPrice = p.price * 2;
+                const sellingPrice = p.market;
                 const revenue = units * sellingPrice;
 
                 totalCost += cost;
